@@ -1,5 +1,6 @@
 flask.cfg
 test_api_key.json
+users.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

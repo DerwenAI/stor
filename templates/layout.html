@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ self.title() }}</title>
+</head>
+
+<body>
+  <h2>{{ self.title() }}</h2>
+  {% block body %}{% endblock %}
+  <br/>
+  <hr/>
+  {% include "message.html" %}
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}login{% endblock %}
+{% block body %}
+<form id="loginForm" class="form form-register" method="POST" action="" role="form">
+{{ form.hidden_tag() }}
+
+<table style="width:70%;">
+  <tr style="vertical-align:top;">
+    <th style="text-align:left;">{{ form.email.label }}</th>
+    <td>&nbsp;{{ form.email(size=40) }}</td>
+    <td>
+    {% if form.email.errors %}
+      <ul style="list-style-type:none;">{% for error in form.email.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+    {% else %}
+      &nbsp;
+    {% endif %}
+    </td>
+  </tr>
+  <tr style="vertical-align:top;">
+    <th style="text-align:left;">{{ form.password.label }}</th>
+    <td>&nbsp;{{ form.password(size=40) }}</td>
+    <td>
+    {% if form.password.errors %}
+      <ul style="list-style-type:none;">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+    {% else %}
+      &nbsp;
+    {% endif %}
+    </td>
+  </tr>
+  <tr>
+  <th colspan=2 style="text-align:left;"=>
+  <p
+   style="line-height: 1.1em;"
+  >
+  </p>
+  </th>
+  </tr>
+</table>
+
+<p>
+<input class="btn btn-default btn-submit" type="submit" value="login">
+</p>
+
+</form>
+{% endblock %}

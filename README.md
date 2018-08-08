@@ -31,7 +31,9 @@ Add these lines to your `~/.profile`:
 
 ```
 source ~/venv/bin/activate
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/test_api_key.json"
+export STOR="$HOME/stor"
+export GOOGLE_APPLICATION_CREDENTIALS="$STOR/test_api_key.json"
+export FLASK_CONFIG="$STOR/flask.cfg"
 ```
 
 
@@ -42,18 +44,12 @@ Update config:
 gsutil cp flask.cfg gs://computable-stor-config
 ```
 
-Sync with Google Cloud Storage:
-```
-gsutil rsync -d -r static gs://computable-stor-config
-```
-
 For dev/test, use:
 ```
-export FLASK_CONFIG="flask.cfg"
-./app.py --builtin=5000
+./app.py
 ```
 
 For testing in production env:
 ```
-gunicorn --bind 0.0.0.0:5000 wsgi:app
+gunicorn --bind 0.0.0.0:5000 wsgi:APP
 ```

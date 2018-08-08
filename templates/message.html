@@ -1,0 +1,11 @@
+<div style="width:70%; height:1em;">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <ul style="list-style-type:none; margin-top:0.2em;">
+  {% for message in messages %}
+    <li style="padding-left:1em; text-indent:-1em;"><strong>{{ message }}</strong></li>
+  {% endfor %}
+  </ul>
+{% endif %}
+{% endwith %}
+</div>
