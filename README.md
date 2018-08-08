@@ -17,14 +17,23 @@ exit
 
 cd
 virtualenv -p /usr/bin/python3 venv
-```
+git clone https://github.com/DerwenAI/stor.git
 
-## Dependencies
-
-```
-source venv/bin/activate
+cd stor
 pip install -r requirements.txt
+gsutil cp gs://computable-stor-config/* .
 ```
+
+
+## Environment
+
+Add these lines to your `~/.profile`:
+
+```
+source ~/venv/bin/activate
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/test_api_key.json"
+```
+
 
 ## Commands
 
