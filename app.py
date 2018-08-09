@@ -24,10 +24,9 @@ import sys
 
 
 ######################################################################
-## simple app to show Flask-Login
+## simple app
 
 basedir = path.abspath(path.dirname(__file__))
-is_local = False
 
 # Flask config
 APP = Flask(__name__, static_folder="static")
@@ -144,7 +143,7 @@ def is_safe_url (target):
     ## http://flask.pocoo.org/snippets/62/
     ref_url = urlparse(request.host_url)
     test_url = urlparse(urljoin(request.host_url, target))
-    schemes = ("http" if is_local else "https",)
+    schemes = ("http", "https",)
 
     return test_url.scheme in schemes and ref_url.netloc == test_url.netloc
 
@@ -219,5 +218,4 @@ def home ():
 ## main
 
 if __name__ == "__main__":
-    is_local = True
-    APP.run()
+    APP.run(host="0.0.0.0", debug=True)
