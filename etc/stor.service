@@ -1,0 +1,16 @@
+[Unit]
+Description=Gunicorn instance for demo stor service
+After=network.target
+
+[Service]
+User=ceteri
+Group=www-data
+WorkingDirectory=/home/ceteri/stor
+Environment="PATH=/home/ceteri/venv/bin"
+Environment="FLASK_CONFIG=flask.cfg"
+Environment="GOOGLE_APPLICATION_CREDENTIALS=test_api_key.json"
+ExecStart=/home/ceteri/venv/bin/gunicorn --workers 3 --bind unix:stor.sock -m 007 wsgi:APP
+
+[Install]
+WantedBy=multi-user.target
+

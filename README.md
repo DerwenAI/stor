@@ -13,6 +13,8 @@ pushd /usr/bin/
 rm python
 ln -s python3 python
 
+cp etc/stor.service /etc/systemd/system/stor.service
+
 exit
 
 cd
@@ -34,6 +36,15 @@ source ~/venv/bin/activate
 export STOR="$HOME/stor"
 export GOOGLE_APPLICATION_CREDENTIALS="$STOR/test_api_key.json"
 export FLASK_CONFIG="$STOR/flask.cfg"
+```
+
+
+## Service
+
+```
+sudo systemctl daemon-reload
+sudo systemctl start stor
+sudo systemctl enable stor
 ```
 
 

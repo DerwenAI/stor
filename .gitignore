@@ -1,5 +1,6 @@
 flask.cfg
 test_api_key.json
+univs.json
 users.json
 
 # Byte-compiled / optimized / DLL files
