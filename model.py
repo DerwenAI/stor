@@ -32,12 +32,13 @@ PWD_CONTEXT = CryptContext(
 ######################################################################
 ## login objects
 
-class User ():
-    id = len(USER_LIST) + 1
-    email_addr = None
-    pwd_hash = None
-    active = True
-    authenticated = False
+class User:
+    def __init__ (self, email_addr, pwd_hash):
+        self.email_addr = email_addr
+        self.pwd_hash = pwd_hash
+        self.id = len(USER_LIST) + 1
+        self.active = True
+        self.authenticated = False
 
     def __repr__ (self):
         return str(self.as_dict())
@@ -124,9 +125,7 @@ def load_users (file_name):
         model = json.load(f)
 
         for user_data in model["users"]:
-            user = User()
-            user.email_addr = user_data["email_addr"]
-            user.pwd_hash = user_data["pwd_hash"]
+            user = User(email_addr=user_data["email_addr"], pwd_hash=user_data["pwd_hash"])
             USER_LIST.append(user)
 
 
